@@ -28,3 +28,7 @@ main .cell{
 .selected{
     background-color: aqua;
 }
+
+.error{
+    background-color: red;
+}

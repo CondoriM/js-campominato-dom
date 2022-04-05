@@ -1,3 +1,5 @@
+const error = [];
+console.log(error);
 
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -32,6 +34,7 @@ function startGame(event){
 
     grid_case(cells_num,cols_num)
     click_case('.cell','selected')
+    errorGrid(1,100);
 }
 
 function grid_case(cells_num, cols_num) {
@@ -51,6 +54,16 @@ function grid_case(cells_num, cols_num) {
     }  
 }
 
+function errorGrid(min,max){
+    for (let i= 0; i <= 15; i++){
+        
+        const errorN = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        error.push(errorN)
+        
+    }
+}
+
 function click_case(css_selector, css_class) {
 
     const cells = document.querySelectorAll(css_selector)
@@ -59,11 +72,11 @@ function click_case(css_selector, css_class) {
       const cellElemnt = cells[i];
       
       cellElemnt.addEventListener('click', function () {
-        console.log(this);
         
         this.classList.add(css_class)
+
+        
       });
   
-    }
-  
+    } 
 }
